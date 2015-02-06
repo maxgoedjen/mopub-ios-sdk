@@ -64,6 +64,7 @@
     [self.adContentView removeFromSuperview];
     _adContentView = view;
     [self addSubview:view];
+    [self invalidateIntrinsicContentSize];
 }
 
 - (BOOL)ignoresAutorefresh
@@ -92,6 +93,11 @@
     } else {
         return self.adContentView.bounds.size;
     }
+}
+
+- (CGSize)intrinsicContentSize
+{
+    return self.adContentViewSize;
 }
 
 - (void)rotateToOrientation:(UIInterfaceOrientation)newOrientation
