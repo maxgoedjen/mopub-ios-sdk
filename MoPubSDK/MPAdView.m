@@ -64,7 +64,9 @@
     [self.adContentView removeFromSuperview];
     _adContentView = view;
     [self addSubview:view];
-    [self invalidateIntrinsicContentSize];
+    if ([self respondsToSelector:@selector(invalidateIntrinsicContentSize)]) {
+        [self invalidateIntrinsicContentSize];
+    }
 }
 
 - (BOOL)ignoresAutorefresh
